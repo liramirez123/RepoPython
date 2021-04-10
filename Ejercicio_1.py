@@ -1,3 +1,13 @@
+def mcd(m,n):
+    while m%n != 0:
+        mViejo = m
+        nViejo = n
+
+        m = nViejo
+        n = mViejo % nViejo
+
+    return n
+
 class Fraccion:
 
     def __init__(self,arriba,abajo):
@@ -13,14 +23,14 @@ class Fraccion:
     def __add__(self,otraFraccion):
         nuevoNum = self.num * otraFraccion.den + self.den * otraFraccion.num
         nuevoDen = self.den * otraFraccion.den
-
-        return Fraccion(nuevoNum,nuevoDen)
+        comun = mcd(nuevoNum,nuevoDen)
+        return Fraccion(nuevoNum//comun,nuevoDen//comun)
 
 
 miF = Fraccion(1,2)
 miF.mostrar()
 
-f1 = Fraccion(1,4)
+f1 = Fraccion(1,2)
 f2 = Fraccion(1,2)
 f3 = f1 + f2
 print(f3)
