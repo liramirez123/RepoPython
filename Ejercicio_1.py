@@ -34,3 +34,4 @@ f1 = Fraccion(1,2)
 f2 = Fraccion(1,2)
 f3 = f1 + f2
 print(f3)
+print(f3)
